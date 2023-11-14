@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="CarRental.Views.CarAddingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CarRental.Views"
+             xmlns:mds="clr-namespace:CarRental.Models"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Adding a new car"
+                   Style="{StaticResource Header}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+
+        <Grid Grid.Row="1" Margin="5,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Car type" FontSize="20" Margin="20,10"/>
+                    <ComboBox Grid.Row="1" ItemsSource="{Binding AllTypes}" SelectedItem="{Binding SelectedCarType}"  FontSize="15" Margin="20.5"/>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Car ID" FontSize="20" Margin="20,10"/>
+                    <TextBox Grid.Row="1" Text="{Binding CarID, UpdateSourceTrigger=PropertyChanged}" FontSize="15" Margin="20.10"/>
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Car color" FontSize="20" Margin="20,10"/>
+                    <ComboBox Grid.Row="1" ItemsSource="{Binding AllColors}" SelectedItem="{Binding SelectedCarColor}"  FontSize="15" Margin="20.5"/>
+                </Grid>
+            </Grid>
+
+            <StackPanel Grid.Column="1">
+                <Button  Content="Add car" Command="{Binding AddNewCarCommand}" Width="120" Margin="30,130" HorizontalAlignment="Center"/>
+                <Button  Content="Cancel" Command="{Binding CancelCommand}" Width="120" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</UserControl>

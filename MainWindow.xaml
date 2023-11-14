@@ -1,0 +1,33 @@
+﻿<Window x:Class="CarRental.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarRental"
+        xmlns:views="clr-namespace:CarRental.Views"
+        xmlns:vms="clr-namespace:CarRental.ViewModels"
+        mc:Ignorable="d"
+        Title="CarRental" Height="450" Width="800" FontSize="14">
+    <Grid Margin="20,10" MaxWidth="600">
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type vms:ReservationListingViewModel}">
+                <views:ReservationListingView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:StartWindowViewModel}">
+                <views:StartWindowView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:CarAddingViewModel}">
+                <views:CarAddingView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:CarListingViewModel}">
+                <views:CarListingView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:ListForReservationViewModel}">
+                <views:ListForReservationView/>
+            </DataTemplate>
+
+        </Grid.Resources>
+
+        <ContentControl Content="{Binding CurrentViewModel}"/>
+    </Grid>
+</Window>
